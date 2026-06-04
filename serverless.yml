@@ -1,12 +1,11 @@
 org: araypeayala
 service: api-alumnos
-
 provider:
   name: aws
   runtime: python3.12
   timeout: 30  
   iam:
-    role: arn:aws:iam::498917627164:role/LabRole
+    role: arn:aws:iam::530674682615:role/LabRole
 
 functions:
   listar:
