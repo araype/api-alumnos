@@ -1,21 +1,51 @@
 org: araypeayala
 service: api-alumnos
+
 provider:
   name: aws
   runtime: python3.12
   timeout: 30  
   iam:
-    role: arn:aws:iam::530674682615:role/LabRole
+    role: arn:aws:iam::498917627164:role/LabRole
 
 functions:
   listar:
-    handler: ListarAlumnos.lambda_handler
+    handler: handler.listar
     events:
       - http:
           path: /alumnos/listar
           method: post
           cors: true
           integration: lambda
-
-
-
+  crear:
+    handler: handler.crear
+    events:
+      - http:
+          path: /alumnos/crear
+          method: post
+          cors: true
+          integration: lambda
+  modificar:
+    handler: handler.modificar
+    events:
+      - http:
+          path: /alumnos/modificar
+          method: post
+          cors: true
+          integration: lambda
+  eliminar:
+    handler: handler.eliminar
+    events:
+      - http:
+          path: /alumnos/eliminar
+          method: post
+          cors: true
+          integration: lambda
+  buscar:
+    handler: handler.buscar
+    events:
+      - http:
+          path: /alumnos/buscar
+          method: post
+          cors: true
+          integration: lambda
